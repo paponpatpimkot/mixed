@@ -1,7 +1,7 @@
 <?php 
     include 'navbar.php';
     require_once 'config.php';
-    $sql="SELECT * FROM student";
+    $sql="SELECT * FROM subject";
     $result=$con->query($sql);
 ?>
 <html>
@@ -13,17 +13,19 @@
 </head>
 <body>
     <div class="container mt-5">
-        <a href="add_student.php" class="btn btn-primary">
-            +เพิ่มข้อมูลนักศึกษา
+        <a href="add_subject.php" class="btn btn-primary">
+            +เพิ่มข้อมูลวิชา
         </a>
         <br><br>
         <table class="table table-striped">
             <tr class="bg-primary">
                 <th class="text-white">ลำดับที่</th>
-                <th class="text-white">รหัสประจำตัว</th>
-                <th class="text-white">ชื่อ-นามสกุล</th>
-                <th class="text-white">เบอร์โทรศัพท์</th>
-                <th class="text-white">อีเมล</th>
+                <th class="text-white">รหัสวิชา</th>
+                <th class="text-white">ชื่อวิชา</th>
+                <th class="text-white">ทฤษฎี</th>
+                <th class="text-white">ปฏิบัติ</th>
+                <th class="text-white">หน่วยกิต</th>
+                <th class="text-white">ครูผู้สอน</th>
             </tr>
                 <?php
                     $i=1;
@@ -31,10 +33,12 @@
                 ?>
             <tr>
                 <td><?php echo $i; ?></td>
-                <td><?php echo $row['std_id'] ?></td>
-                <td><?php echo $row['std_name']?></td>
-                <td><?php echo $row['std_tel']?></td>
-                <td><?php echo $row['std_email']?></td>
+                <td><?php echo $row['sub_id'] ?></td>
+                <td><?php echo $row['sub_name']?></td>
+                <td><?php echo $row['t_hour']?></td>
+                <td><?php echo $row['p_hour']?></td>
+                <td><?php echo $row['credit']?></td>
+                <td><?php echo $row['teacher']?></td>
             </tr>
             <?php 
                 $i++;
