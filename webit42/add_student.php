@@ -10,11 +10,13 @@
         }else{
             
             $sql="INSERT INTO student VALUES('','$std_name','$std_tel','$std_email')";        
-            $con->query($sql);
+            $con->query($sql);            
             if(!$con){
                 echo "<script>alert('ไม่สามารถเพิ่มข้อมูล')</script>";
             }else{
-                echo "<script>alert('เพิ่มข้อมูลสำเร็จ')</script>";
+                echo "<script>                        
+                        window.location.href='show_student.php';
+                      </script>";
             }
         }        
     }
