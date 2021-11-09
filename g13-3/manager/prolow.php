@@ -1,0 +1,49 @@
+<?php require_once("chk_position.php") ?>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet"  type="text/css" href="../css/css.css"/>
+<title>Untitled Document</title>
+</head>
+<body>
+	<?php
+    	include("header.php");
+		$sh4 = mysqli_num_rows($con->query("select * from product where pro_stock<pro_stock_min"));
+	?>
+    <div class="top"></div>
+    <div class="headcon"><h4>สินค้าใกล้หมดสต๊อค <?php echo $sh4." รายการ"; ?></h4></div>
+    <div class="content"><br>
+
+    	<table class="responstable">
+        	<tr>
+                	<th>ลำดับ</th>
+                    <th>รหัส</th>
+                    <th>สินค้า</th>
+                    <th>ราคาขาย</th>
+                    <th>สต๊อค</th>
+                    <th>สต๊อคขั้นต่ำ</th>
+                    <th>ประเภท</th>
+                    <th>หน่วย</th>
+                    <th>สถานะ</th>
+              </tr>
+              <?php 
+			  	$x=1;
+			  	$sql = $con->query("select * from product p,unit u,category c where p.cate_id=c.cate_id and p.unit_id=u.unit_id and p.pro_stock<p.pro_stock_min order by p.pro_status DESC,p.pro_id");
+				while($r = mysqli_fetch_array($sql)){
+			  ?>
+              <tr>
+              	<td align="center"><?php echo $x;$x++; ?></td>
+            	<td align="center"><?php echo $r['pro_id']; ?></td>
+                <td><?php echo $r['pro_name']; ?></td>
+                <td><?php echo number_format($r['pro_price'],2); ?></td>
+                <td align="center"><?php echo $r['pro_stock']; ?></td>
+                <td align="center"><?php echo $r['pro_stock_min']; ?></td>
+                <td align="center"><?php echo $r['cate_name']; ?></td>
+                <td align="center"><?php echo $r['unit_name']; ?></td>
+                <td align="center"><?php echo $r['pro_status']; ?></td>
+              </tr>
+              <?php } ?>
+        </table>
+    </div>
+</body>
+</html>

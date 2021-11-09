@@ -1,0 +1,47 @@
+a:link:hover {
+    text-decoration: none;
+}
+.btn:hover {
+    background-color: #F7819F;
+  color: white;
+}
+.btn a:link:hover {
+  color: white;
+}
+.btn a:hover{
+  color: white;
+}
+.btn {
+  opacity: 0.7;
+  color: black;
+  background-color:#EAECEE;
+}
+
+
+
+
+.box{
+  width: 770px;
+  height: 150px;
+  background: #000;
+  position: absolute;
+}
+
+  a:link:hover {
+      text-decoration: none;
+  }
+  .btn1:hover {
+      background-color: #0040FF;s
+    color: white;
+  }
+  .btn1 a:link:hover {
+    color: white;
+  }
+  .btn1 a:hover{
+    color: white;
+  }
+  .btn1 {
+    opacity: 0.7;
+    color: black;
+    background-color: #EAECEE;
+  }
